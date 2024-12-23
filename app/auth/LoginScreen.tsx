@@ -29,7 +29,7 @@ export default function LoginScreen() {
 	return (
 		<ThemedView style={styles.container}>
 			<Image
-				source={require("../../assets/images/icon.png")}
+				source={require("../../assets/images/favicon2.jpg")}
 				style={styles.logo}
 			/>
 			<Text style={styles.title}>Welcome Back!</Text>
@@ -40,6 +40,7 @@ export default function LoginScreen() {
 				value={username}
 				onChangeText={setUsername}
 				autoCapitalize="none"
+				placeholderTextColor="#B0B0B0" // Light gray for placeholder
 			/>
 			<TextInput
 				style={styles.input}
@@ -47,6 +48,7 @@ export default function LoginScreen() {
 				value={password}
 				onChangeText={setPassword}
 				secureTextEntry
+				placeholderTextColor="#B0B0B0" // Light gray for placeholder
 			/>
 			<TouchableOpacity
 				style={styles.loginButton}
@@ -70,7 +72,7 @@ const styles = StyleSheet.create({
 		justifyContent: "center",
 		alignItems: "center",
 		padding: 16,
-		backgroundColor: "#f9f9f9",
+		backgroundColor: "#003366", // Dark blue background
 	},
 	logo: {
 		width: 150,
@@ -79,51 +81,59 @@ const styles = StyleSheet.create({
 		resizeMode: "contain",
 	},
 	title: {
-		fontSize: 24,
+		fontSize: 32, // Larger font size for luxury feel
 		fontWeight: "bold",
 		marginBottom: 8,
-		color: "#333",
+		color: "#FFD700", // Gold color for title
+		textAlign: "center",
 	},
 	subtitle: {
-		fontSize: 16,
+		fontSize: 18,
 		marginBottom: 24,
-		color: "#666",
+		color: "#E0E0E0", // Light gray for subtitle
+		textAlign: "center",
 	},
 	input: {
 		width: "100%",
 		height: 48,
-		borderColor: "#ccc",
+		borderColor: "#FFD700", // Gold border
 		borderWidth: 1,
 		borderRadius: 8,
 		paddingHorizontal: 12,
 		marginBottom: 16,
-		backgroundColor: "#fff",
-	},
-	loginButton: {
-		width: "100%",
-		height: 48,
-		backgroundColor: "#007BFF",
-		borderRadius: 8,
-		justifyContent: "center",
-		alignItems: "center",
-		marginBottom: 16,
-	},
-	loginButtonText: {
-		color: "#fff",
+		backgroundColor: "#00509E", // Darker blue for input
 		fontSize: 16,
-		fontWeight: "600",
+		color: "#FFFFFF", // White text for input
 	},
 	registerButton: {
 		width: "100%",
 		height: 48,
 		borderWidth: 1,
-		borderColor: "#007BFF",
+		borderColor: "#FFD700", // Gold border
 		borderRadius: 8,
 		justifyContent: "center",
 		alignItems: "center",
+		backgroundColor: "#00509E", // Darker blue for button
+		marginBottom: 16,
 	},
 	registerButtonText: {
-		color: "#007BFF",
+		color: "#FFD700", // Gold text for button
+		fontSize: 16,
+		fontWeight: "600",
+	},
+	loginButton: {
+		width: "100%",
+		height: 48,
+		borderWidth: 1,
+		borderColor: "#FFD700", // Gold border
+		borderRadius: 8,
+		justifyContent: "center",
+		alignItems: "center",
+		backgroundColor: "#FFD700", // Gold button
+		marginBottom: 24, // Increased margin for more space below
+	},
+	loginButtonText: {
+		color: "#003366", // Dark blue text for button
 		fontSize: 16,
 		fontWeight: "600",
 	},

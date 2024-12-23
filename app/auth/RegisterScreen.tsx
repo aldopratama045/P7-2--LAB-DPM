@@ -3,6 +3,7 @@ import { View, TextInput, Text, TouchableOpacity, Image, StyleSheet, Alert } fro
 import { useRouter } from "expo-router";
 import axios from "axios";
 import API_URL from "../../config/config";
+import { LinearGradient } from 'expo-linear-gradient'; 
 
 export default function RegisterScreen() {
 	const [username, setUsername] = useState("");
@@ -25,13 +26,15 @@ export default function RegisterScreen() {
 	};
 
 	return (
-		<View style={styles.container}>
-			<Image
-				source={require("../../assets/images/favicon.png")}
-				style={styles.image}
-			/>
-			<Text style={styles.title}>Create an Account</Text>
-			<Text style={styles.subtitle}>Join us and get started</Text>
+		<LinearGradient colors={['#003366', '#006699']} style={styles.container}> {/* Dark to light blue gradient */}
+			<View style={styles.header}>
+				<Image
+					source={require("../../assets/images/favicon2.jpg")}
+					style={styles.image}
+				/>
+				<Text style={styles.title}>Create an Account</Text>
+				<Text style={styles.subtitle}>Join us and get started</Text>
+			</View>
 
 			<TextInput
 				style={styles.input}
@@ -39,6 +42,7 @@ export default function RegisterScreen() {
 				value={username}
 				onChangeText={setUsername}
 				autoCapitalize="none"
+				placeholderTextColor="#B0B0B0" 
 			/>
 			<TextInput
 				style={styles.input}
@@ -47,6 +51,7 @@ export default function RegisterScreen() {
 				onChangeText={setEmail}
 				keyboardType="email-address"
 				autoCapitalize="none"
+				placeholderTextColor="#B0B0B0" 
 			/>
 			<TextInput
 				style={styles.input}
@@ -54,6 +59,7 @@ export default function RegisterScreen() {
 				value={password}
 				onChangeText={setPassword}
 				secureTextEntry
+				placeholderTextColor="#B0B0B0" 
 			/>
 
 			<TouchableOpacity
@@ -68,71 +74,82 @@ export default function RegisterScreen() {
 			>
 				<Text style={styles.backButtonText}>Back to Login</Text>
 			</TouchableOpacity>
-		</View>
+		</LinearGradient>
 	);
 }
 
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		justifyContent: "center",
-		alignItems: "center",
 		padding: 16,
-		backgroundColor: "#f9f9f9",
+	},
+	header: {
+		alignItems: "center",
+		justifyContent: "center",
+		marginBottom: 32,
+		paddingTop: 50,
 	},
 	image: {
-		width: 150,
-		height: 150,
-		marginBottom: 24,
-		resizeMode: "contain",
+		width: 120,
+		height: 120,
+		marginBottom: 16,
 	},
 	title: {
-		fontSize: 24,
+		fontSize: 32, 
 		fontWeight: "bold",
-		color: "#333",
-		marginBottom: 8,
+		color: "#FFD700", 
 	},
 	subtitle: {
-		fontSize: 16,
-		color: "#666",
-		marginBottom: 24,
+		fontSize: 18,
+		color: "#B0B0B0", 
 	},
 	input: {
 		width: "100%",
-		height: 48,
-		borderColor: "#ccc",
+		height: 50,
+		borderColor: "#FFD700", 
 		borderWidth: 1,
-		borderRadius: 8,
-		paddingHorizontal: 12,
+		borderRadius: 25, 
+		paddingHorizontal: 16,
 		marginBottom: 16,
-		backgroundColor: "#fff",
+		backgroundColor: "#003366", 
+		fontSize: 16,
+		color: "#FFFFFF", 
+		shadowColor: "#000",
+		shadowOffset: { width: 0, height: 2 },
+		shadowOpacity: 0.3,
+		shadowRadius: 4,
 	},
 	registerButton: {
 		width: "100%",
-		height: 48,
-		backgroundColor: "#007BFF",
-		borderRadius: 8,
+		height: 50,
+		backgroundColor: "#006699", 
+		borderRadius: 25, 
 		justifyContent: "center",
 		alignItems: "center",
 		marginBottom: 16,
+		shadowColor: "#222",
+		shadowOffset: { width: 0, height: 2 },
+		shadowOpacity: 0.3,
+		shadowRadius: 4,
 	},
 	registerButtonText: {
-		color: "#fff",
-		fontSize: 16,
-		fontWeight: "600",
+		color: "#FFD700", 
+		fontSize: 18,
+		fontWeight: "bold",
 	},
 	backButton: {
 		width: "100%",
-		height: 48,
-		borderColor: "#007BFF",
+		height: 50,
+		borderColor: "#FFD700",
+		backgroundColor: "#003366", 
 		borderWidth: 1,
-		borderRadius: 8,
+		borderRadius: 25, 
 		justifyContent: "center",
 		alignItems: "center",
 	},
 	backButtonText: {
-		color: "#007BFF",
+		color: "#FFD700", 
 		fontSize: 16,
-		fontWeight: "600",
+		fontWeight: "bold",
 	},
 });
